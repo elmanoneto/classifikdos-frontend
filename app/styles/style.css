@@ -1,0 +1,16 @@
+#navbar{
+  background-color: #363636;
+}
+
+#header-dropdonw{
+	margin-left: 1000px !important;
+}
+
+.btn-header{
+	margin-top: 5px;
+	float: right;
+}
+
+body{
+	font-family: 'Sintony';
+}
