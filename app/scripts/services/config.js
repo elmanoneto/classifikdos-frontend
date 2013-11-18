@@ -1,4 +1,7 @@
 'use strict';
 
 angular.module('classifikdosApp')
-  .constant('config', 42);
+  .constant('config',{
+  	'LOGOFF': false,
+  	'LOGIN': true,
+  	});

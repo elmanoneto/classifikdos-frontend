@@ -13,8 +13,8 @@
     <div class="navbar-collapse collapse">
       <span class="btn-header">
         <div class="btn-group">
-          <div ng-show="isAuth()">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+          <div ng-show="isAuth">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
               <span class="glyphicon glyphicon-user"></span> Elmano Neto <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
@@ -22,11 +22,11 @@
               <li><a href="#">Another action</a></li>
               <li><a href="#">Something else here</a></li>
               <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
             </ul>
            </div>
-           <div ng-hide="isAuth()">
-            <button class="btn btn-success" data-toggle="modal" data-target="#myModal">
+           <div ng-hide="isAuth">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
               <span class="glyphicon glyphicon-log-in"></span> Login
             </button>
            </div>
@@ -60,7 +60,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">
-         <span class="glyphicon glyphicon-remove-circle"></span> Fechar
+         <span class="glyphicon glyphicon-remove"></span> Fechar
         </button>
         <button type="button" class="btn btn-primary" ng-click="login()">
           <span class="glyphicon glyphicon-log-in"></span> Login
