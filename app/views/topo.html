@@ -1,4 +1,4 @@
-<header ng-controller="UserCtrl">
+<header>
   <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
   <div class="container" id="navbar">
     <div class="navbar-header" >
@@ -8,26 +8,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><span class="header-classifikdos">Classifikdos</a>
+      <a class="navbar-brand" href="#"><div class="header-classifikdos">classifi<span class="red">k</span>dos</div></a>
     </div>
     <div class="navbar-collapse collapse">
       <span class="btn-header">
         <div class="btn-group">
           <div ng-show="isAuth">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-              <span class="glyphicon glyphicon-user"></span> Elmano Neto <span class="caret"></span>
+              <span class="glyphicon glyphicon-user"></span> {{usuario.nome}} <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">Action</a></li>
               <li><a href="#">Another action</a></li>
               <li><a href="#">Something else here</a></li>
               <li class="divider"></li>
-              <li><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
+              <li class="red"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
             </ul>
            </div>
            <div ng-hide="isAuth">
             <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-              <span class="glyphicon glyphicon-log-in"></span> Login
+              <span class="glyphicon glyphicon-log-in"></span> Acesse sua conta
             </button>
            </div>
         </div>
@@ -40,21 +40,19 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" >
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Login</h4>
       </div>
       <div class="modal-body">
         <form role="form">
           <div class="form-group">
-            <label for="exampleInputEmail1">E-mail</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email"
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="E-mail"
             ng-model="user.email">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-            ng-model="user.password">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"
+            ng-model="user.senha">
           </div>
         </form>
       </div>

@@ -7,10 +7,29 @@
 }
 
 .btn-header{
-	margin-top: 5px;
+	margin-top: 8px;
 	float: right;
+	margin-right: 0px;
+}
+
+.header-classifikdos{
+	color: white;
+	margin-left: 24px;
+}
+
+.header-classifikdos .red{
+	color: red;
+	font-weight: bold;
 }
 
 body{
 	font-family: 'Sintony';
+}
+
+.site{
+	margin-top:20px;
+}
+
+.auth {
+	margin-left: 10px;
 }

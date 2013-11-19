@@ -4,14 +4,32 @@ angular.module('classifikdosApp')
   .controller('UserCtrl', function ($scope, Auth, config, $cookies) {
 
   	$scope.login = function () {
-  		Auth.authenticate($scope.user.email, $scope.user.password);
-  		$('#myModal').modal('hide');
-  		$scope.isAuth = config.LOGIN;
+      Auth.login($scope.user.email, $scope.user.senha);
+      $scope.isAuth = Auth.isAuth();
+      delete $scope.user.email;
+      delete $scope.user.senha;
+      $('#myModal').modal('hide');
   	}
 
   	$scope.logout = function () {
   		delete $cookies.user;
   		$scope.isAuth = config.LOGOFF;
   	}
+
+    $scope.register = function () {
+      var user = {
+        'nome': $scope.user.cadastro.name,
+        'email': $scope.user.cadastro.email,
+        'senha': $scope.user.cadastro.senha
+      }
+
+      delete $scope.user.cadastro.email;
+      delete $scope.user.cadastro.name;
+      delete $scope.user.cadastro.senha;
+
+      Auth.register(user);
+      $scope.isAuth = Auth.isAuth();
+      $scope.usuario = $cookies.user;  
+    }
 
   });

@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Classifikdos 2.0</title>
+    <title>classifikdos 2.0</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -14,12 +14,45 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/bootstrap.css">
         <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/simplegrid.css">
         <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
         <!-- endbuild -->
 </head>
-  <body ng-app="classifikdosApp">
+  <body ng-app="classifikdosApp" ng-controller="UserCtrl" ng-controller="MainCtrl">
 
     <topo></topo>
+
+    <div class="site">
+        <div class="grid grid-pad">
+            <div class="col-9-12">
+               <div class="content">
+                   <h3>Últimos anúncios</h3>
+                   <div class="container" ng-view=""></div>
+               </div>
+            </div>
+            <div class="col-3-12">
+               <div class="content">
+                   <h3>Vire um anunciante</h3>
+                   <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" ng-model="user.cadastro.name">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="E-mail"
+                        ng-model="user.cadastro.email">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"
+                        ng-model="user.cadastro.senha">
+                      </div>
+                    <button type="button" class="btn btn-success" ng-click="register()">
+                          <span class="glyphicon glyphicon-plus"></span> Cadastre-se
+                    </button>
+                    </form> 
+               </div>
+            </div>
+        </div>
+    </div>
     
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -29,9 +62,7 @@
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
