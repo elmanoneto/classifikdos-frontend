@@ -47,6 +47,7 @@
       <div class="modal-body">
         <form role="form">
           <div class="form-group">
+            <div class="alert alert-danger"  id="alert" style="display:none"><strong>Ooops!</strong> Verifique se os dados estão corretos.</div>
             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="E-mail"
             ng-model="user.email">
           </div>
@@ -56,6 +57,7 @@
           </div>
         </form>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">
          <span class="glyphicon glyphicon-remove"></span> Fechar
