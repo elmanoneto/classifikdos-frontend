@@ -49,15 +49,27 @@
                         <button type="button" class="btn btn-primary" ng-click="register()">
                               <span class="glyphicon glyphicon-plus"></span> Cadastre-se
                         </button>
-                        </form> 
-                   </div>
+                        </form>                     
+                     </div>
                    <div ng-show="isAuth">
-                    <h3>Minha Conta</h3>
+                        <span class="minha-conta">
+                        <h3>Minha Conta</h3>
+                        <ul>
+                            <li>Meus Anúncios</li>
+                        </ul>
+                        </span>
                     </div>
                   </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">classifi<span class="red">k</span>dos 2.0 ~ 
+        powered by: angularjs, html5, css3
+        </p>
     </div>
     
     <!--[if lt IE 7]>
@@ -114,6 +126,7 @@
         <script src="scripts/services/auth.js"></script>
         <script src="scripts/controllers/user.js"></script>
         <script src="scripts/services/config.js"></script>
+        <script src="scripts/controllers/anuncios.js"></script>
         <!-- endbuild -->
 </body>
 </html>

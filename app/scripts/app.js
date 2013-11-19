@@ -12,6 +12,10 @@ angular.module('classifikdosApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/anuncios', {
+        templateUrl: 'views/anuncios.html',
+        controller: 'AnunciosCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

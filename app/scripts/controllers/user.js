@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('classifikdosApp')
-  .controller('UserCtrl', function ($scope, Auth, config, $cookies) {
+  .controller('UserCtrl', function ($scope, Auth, config, $cookies, $location) {
+
+    console.log($location);
 
   	$scope.login = function () {
       Auth.login($scope.user.email, $scope.user.senha);
@@ -17,7 +19,7 @@ angular.module('classifikdosApp')
   	}
 
   	$scope.logout = function () {
-  		delete $cookies.user;
+  		Auth.logout();
   		$scope.isAuth = config.LOGOFF;
   	}
 

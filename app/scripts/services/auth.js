@@ -24,17 +24,13 @@ angular.module('classifikdosApp')
       this.isAuth();
   	}
 
+    this.logout = function () {
+      delete $cookies.user;
+    }
+
     this.register = function (user) {
       users.push(user);
       this.login(user.email, user.senha);
-    }
-
-    this.findUser = function (name) {
-      for(user in users){
-        if (user.name == name){
-          return true;
-        }
-      }
     }
 
   });

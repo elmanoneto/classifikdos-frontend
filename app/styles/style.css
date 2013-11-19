@@ -9,7 +9,7 @@
 .btn-header{
 	margin-top: 8px;
 	float: right;
-	margin-right: 0px;
+	margin-right: 5px;
 }
 
 .header-classifikdos{
@@ -32,4 +32,21 @@ body{
 
 .auth {
 	margin-left: 10px;
+}
+
+#footer{
+	background-color: #363636;
+	text-align: center;
+	color: white;
+	height: 100px;
+	margin-top:200px;
+}
+
+.red {
+	color: red;
+	font-weight: bold;
+}
+
+.minha-conta{
+	text-align: right;
 }

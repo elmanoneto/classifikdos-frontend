@@ -3,8 +3,10 @@
 angular.module('classifikdosApp')
   .controller('MainCtrl', function ($scope) {
     
-    $scope.click = function () {
-    	console.log('ok');
+    $scope.teste = function (id) {
+    	window.location = '#/';
+    	$scope.teste = 'kkk';
+    	console.log(id);
     }
 
   });

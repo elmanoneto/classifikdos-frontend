@@ -15,12 +15,11 @@
         <div class="btn-group">
           <div ng-show="isAuth">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-              <span class="glyphicon glyphicon-user"></span> {{usuario.nome}} <span class="caret"></span>
+              <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbsp<span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{usuario.nome}}</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Configurações</a></li>
               <li class="divider"></li>
               <li class="red"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
             </ul>
