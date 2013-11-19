@@ -31,25 +31,31 @@
                </div>
             </div>
             <div class="col-3-12">
-               <div class="content">
-                   <h3>Vire um anunciante</h3>
-                   <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" ng-model="user.cadastro.name">
-                      </div>
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="E-mail"
-                        ng-model="user.cadastro.email">
-                      </div>
-                      <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"
-                        ng-model="user.cadastro.senha">
-                      </div>
-                    <button type="button" class="btn btn-primary" ng-click="register()">
-                          <span class="glyphicon glyphicon-plus"></span> Cadastre-se
-                    </button>
-                    </form> 
-               </div>
+                   <div class="content">
+                    <div ng-hide="isAuth">
+                       <h3>Vire um anunciante</h3>
+                       <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" ng-model="user.cadastro.name">
+                          </div>
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="E-mail"
+                            ng-model="user.cadastro.email">
+                          </div>
+                          <div class="form-group">
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"
+                            ng-model="user.cadastro.senha">
+                          </div>
+                        <button type="button" class="btn btn-primary" ng-click="register()">
+                              <span class="glyphicon glyphicon-plus"></span> Cadastre-se
+                        </button>
+                        </form> 
+                   </div>
+                   <div ng-show="isAuth">
+                    <h3>Minha Conta</h3>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
     </div>
