@@ -37,4 +37,9 @@ angular.module('classifikdosApp')
       $scope.usuario = $cookies.user;  
     }
 
+    $scope.cancelar = function () {
+      console.log('fechou');
+      $('#alert').css('display', 'none');
+    }
+
   });
