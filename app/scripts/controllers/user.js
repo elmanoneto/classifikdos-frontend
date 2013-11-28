@@ -1,11 +1,9 @@
 'use strict';
 
 angular.module('classifikdosApp')
-  .controller('UserCtrl', function ($scope, Auth, config, $cookies, $location) {
+  .controller('UserCtrl', function ($scope, Auth, config, $cookies) {
 
-    console.log($location);
-
-  	$scope.login = function () {
+    $scope.login = function () {
       Auth.login($scope.user.email, $scope.user.senha);
       if (Auth.isAuth() == true){
         $scope.isAuth = Auth.isAuth();
@@ -40,7 +38,6 @@ angular.module('classifikdosApp')
     }
 
     $scope.cancelar = function () {
-      console.log('fechou');
       $('#alert').css('display', 'none');
     }
 

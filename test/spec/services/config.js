@@ -11,8 +11,8 @@ describe('Service: Config', function () {
     Config = _Config_;
   }));
 
-  it('should do something', function () {
+ /* it('should do something', function () {
     expect(!!Config).toBe(true);
-  });
+  });*/
 
 });

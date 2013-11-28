@@ -1,71 +1,34 @@
-<header>
-  <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
-  <div class="container" id="navbar">
-    <div class="navbar-header" >
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><div class="header-classifikdos">classifi<span class="red">k</span>dos</div></a>
-    </div>
-    <div class="navbar-collapse collapse">
-      <span class="btn-header">
-        <div class="btn-group">
-          <div ng-show="isAuth">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-              <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbsp<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{usuario.nome}}</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Configurações</a></li>
-              <li class="divider"></li>
-              <li class="red"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
-            </ul>
-           </div>
-           <div ng-hide="isAuth">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-              <span class="glyphicon glyphicon-log-in"></span> Acesse sua conta
-            </button>
-           </div>
+<div class="navbar navbar-default navbar-fixed-top" ng-controller="MainCtrl">
+  <div class="topo">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 center-align">
+          <img src="images/classifikdos.png" />
         </div>
-      </span>
+        <div class="col-xs-6 col-md-4 right-align">
+          <form class="search">
+            <input type="text" class="input-search">
+          </form>
+        </div>
+      </div>     
+    </div>
+    <hr class="hr-topo">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <ul class="nav navbar-nav menu">
+            <li class="li-menu"><a tabindex="-1" href="#">Página Principal </a></li>
+            <li class="dropdown align-dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Categorias <span class="caret seta-menu"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="themes">
+                  <li><a tabindex="-1" href="../default/">Default</a></li>
+                </ul>
+              </li>
+            <li class="li-menu"><a tabindex="-1" href="#">Sobre</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-6">.col-xs-6</div>
+      </div>
     </div>
   </div>
-  </div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" >
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Login</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form">
-          <div class="form-group">
-            <div class="alert alert-danger"  id="alert" style="display:none"><strong>Ooops!</strong> Verifique se os dados estão corretos.</div>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="E-mail"
-            ng-model="user.email">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"
-            ng-model="user.senha">
-          </div>
-        </form>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="cancelar()">
-         <span class="glyphicon glyphicon-remove"></span> Fechar
-        </button>
-        <button type="button" class="btn btn-primary" ng-click="login()">
-          <span class="glyphicon glyphicon-log-in"></span> Login
-        </button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-</header>
+</div>

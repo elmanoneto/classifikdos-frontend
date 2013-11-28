@@ -1,10 +1,6 @@
 'use strict';
 
 angular.module('classifikdosApp')
-  .controller('AnunciosCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('AnunciosCtrl', function ($scope, $routeParams) {
+    console.log($routeParams.params);
   });
