@@ -3,11 +3,11 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-8 center-align">
-          <img src="images/classifikdos.png" />
+          <img src="images/classifikdos.png" class="img-logo"/>
         </div>
         <div class="col-xs-6 col-md-4 right-align">
-          <form class="search">
-            <input type="text" class="input-search">
+          <form class="search" ng-submit="teste()">
+            <input type="text" class="input-search" ng-model="search">
           </form>
         </div>
       </div>     
@@ -27,7 +27,9 @@
             <li class="li-menu"><a tabindex="-1" href="#">Sobre</a></li>
           </ul>
         </div>
-        <div class="col-xs-6">.col-xs-6</div>
+        <div class="col-xs-6 menu-config">
+          Olá, acesse <span class="underline">sua conta</span>, ou faça <span class="underline">seu registro</span>.
+        </div>
       </div>
     </div>
   </div>
