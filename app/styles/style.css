@@ -79,7 +79,6 @@ body{
 	background-color: gray;
 	height: 1px;
 	top: 20px;
-	z-index: 
 }
 
 .search input{
@@ -120,6 +119,7 @@ body{
 
 .underline{
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 .base {
@@ -140,4 +140,12 @@ body{
 
 footer{
 	color: gray;
+}
+
+.white {
+	color: white;
+}
+
+.white a:hover{
+	color: white;
 }

@@ -6,8 +6,9 @@ angular.module('classifikdosApp')
       restrict: 'A',
       link: function search(scope, element, attrs) {
         var change = 0;
-        $(this).stop();
-        $('.input-search').focus(function () {      
+        
+        $('.input-search').focus(function () { 
+          $(this).stop();
           if(change != 1){
             $(this).animate({width:'+=285px'}, 'linear');
           }
@@ -24,6 +25,7 @@ angular.module('classifikdosApp')
           
           change = 0;
         });
+        
       }
     };
   });

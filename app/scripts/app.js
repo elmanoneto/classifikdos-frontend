@@ -4,7 +4,8 @@ angular.module('classifikdosApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ngStorage',
 ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -15,6 +16,10 @@ angular.module('classifikdosApp', [
       .when('/anuncios', {
         templateUrl: 'views/anuncios.html',
         controller: 'AnunciosCtrl'
+      })
+      .when('/search/:params', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,27 +1,32 @@
 'use strict';
 
 angular.module('classifikdosApp')
-  .controller('UserCtrl', function ($scope, Auth, config, $cookies) {
+  .controller('UserCtrl', function ($scope, Auth) {
+ 
+    $scope.isAuth = Auth.isAuth();
 
     $scope.login = function () {
-      Auth.login($scope.user.email, $scope.user.senha);
-      if (Auth.isAuth() == true){
-        $scope.isAuth = Auth.isAuth();
-        $('#myModal').modal('hide');
-        $('#alert').css('display', 'none');
-      }else{
-        $('#alert').css('display', 'block');
+      var user = {
+        'email': $scope.user.email,
+        'senha': $scope.user.senha
       }
+
+      Auth.login(user);
+
+      $scope.isAuth = Auth.isAuth();
+
+      $('#modalLogin').modal('hide');
+
       delete $scope.user.email;
       delete $scope.user.senha;      
   	}
 
   	$scope.logout = function () {
   		Auth.logout();
-  		$scope.isAuth = config.LOGOFF;
+  		$scope.isAuth = Auth.isAuth();
   	}
 
-    $scope.register = function () {
+/*    $scope.register = function () {
       var user = {
         'nome': $scope.user.cadastro.name,
         'email': $scope.user.cadastro.email,
@@ -35,10 +40,6 @@ angular.module('classifikdosApp')
       Auth.register(user);
       $scope.isAuth = Auth.isAuth();
       $scope.usuario = $cookies.user;  
-    }
-
-    $scope.cancelar = function () {
-      $('#alert').css('display', 'none');
-    }
+    }*/
 
   });

@@ -1,27 +1,30 @@
 'use strict';
 
 angular.module('classifikdosApp')
-  .service('Auth', function Auth($cookies) {
+  .service('Auth', function Auth($localStorage, $sessionStorage, $cookies) {
 
-    var users = [];
+    var users = [
+      {email: 'sei@la.com.br', senha: '123'},
+      {email: 'elmano@neto.com', senha: '123'}
+    ];
   	
     this.isAuth = function () {
-  		if ($cookies.user) {
-  			return true;
-  		}else {
-  			return false;
-  		}
-  	};
+      if (!$cookies.user) {
+        return false;
+      }
+      return true;
+    }
 
-  	this.login = function (email, senha) {
-      var user;
-  		for(var i = 0; i < users.length; i++){
-        if (users[i].email == email && users[i].senha == senha){
-          $cookies.user = users[i];
+  	this.login = function (user) {
+     /* for(var i = 0; i < users.length; i++){
+        if(users[i].email == user.email && users[i].senha == user.senha){
+          $sessionStorage.user = user;
+          this.isAuth();
           break;
         }
-      } 
-      this.isAuth();
+      }*/
+
+      $cookies.user = 'elmano';
   	}
 
     this.logout = function () {
@@ -31,6 +34,16 @@ angular.module('classifikdosApp')
     this.register = function (user) {
       users.push(user);
       this.login(user.email, user.senha);
+    }
+
+    this.checkUser = function () {
+      if (!$sessionStorage.user) {
+        window.location = '#/';
+      };
+    }
+
+    this.getUser = function () {
+      return $cookies.user;
     }
 
   });

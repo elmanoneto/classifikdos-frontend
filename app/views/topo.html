@@ -1,13 +1,13 @@
-<div class="navbar navbar-default navbar-fixed-top" ng-controller="MainCtrl">
+<div class="navbar navbar-default navbar-fixed-top">
   <div class="topo">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-8 center-align">
           <img src="images/classifikdos.png" class="img-logo"/>
         </div>
-        <div class="col-xs-6 col-md-4 right-align">
-          <form class="search" ng-submit="teste()">
-            <input type="text" class="input-search" ng-model="search" search>
+        <div class="col-xs-6 col-md-4 right-align" ng-controller="SearchCtrl">
+          <form class="search" ng-submit="busca()" >
+            <input type="text" class="input-search" ng-model="searchmodel" search required>
           </form>
         </div>
       </div>     
@@ -19,7 +19,7 @@
           <ul class="nav navbar-nav menu">
             <li class="li-menu"><a tabindex="-1" href="#">Página Principal </a></li>
             <li class="dropdown align-dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Categorias <span class="caret seta-menu"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" id="themes">Categorias <span class="caret seta-menu"></span></a>
                 <ul class="dropdown-menu" aria-labelledby="themes">
                   <li><a tabindex="-1" href="../default/">Default</a></li>
                 </ul>
@@ -28,13 +28,72 @@
           </ul>
         </div>
         <div class="col-xs-6 menu-config">
-          Olá, acesse <span class="underline">sua conta</span>, ou faça <span class="underline">seu registro</span>.
+          <div ng-hide="isAuth">
+            Olá, acesse <span class="underline"><a data-toggle="modal" data-target="#modalLogin" class="white">sua conta</a></span>, ou faça <span class="underline"><a class="white" data-toggle="modal" data-target="#modalRegister">seu registro</a></span>.
+          </div>
+          <div ng-show="isAuth">
+            Bem vindo, usuário! <a href="javascript:void(0)" ng-click="logout()">Sair do sistema</a>.
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-  
-</script>
+<!-- Modal -->
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Acesse sua conta</h4>
+      </div>
+      <div class="modal-body">
+         <form role="form" ng-submit="login()">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Email</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" ng-model="user.email" placeholder="Email">
+          </div>
+        </form>
+        <form role="form">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Senha</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" ng-model="user.senha" placeholder="Senha">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" ng-click="login()">Login</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Registro</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Endereço de email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Endereço de email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Senha</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Registrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
