@@ -32,7 +32,15 @@
             Olá, acesse <span class="underline"><a data-toggle="modal" data-target="#modalLogin" class="white">sua conta</a></span>, ou faça <span class="underline"><a class="white" data-toggle="modal" data-target="#modalRegister">seu registro</a></span>.
           </div>
           <div ng-show="isAuth">
-            Bem vindo, usuário! <a href="javascript:void(0)" ng-click="logout()">Sair do sistema</a>.
+            <div class="btn-group">
+              <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span> {{user.nome}} <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a>Perfil</a></li>
+                <li><a ng-click="logout()">Logout</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -49,7 +57,10 @@
         <h4 class="modal-title" id="myModalLabel">Acesse sua conta</h4>
       </div>
       <div class="modal-body">
-         <form role="form" ng-submit="login()">
+        <form role="form" ng-submit="login()">
+          <div class="alert alert-dismissable alert-danger" id="alert-login" style="display:none;">
+            <strong>Oops!</strong> Dados inválidos, verifique e tente novamente.
+          </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Email</label>
             <input type="text" class="form-control" id="exampleInputPassword1" ng-model="user.email" placeholder="Email">
@@ -82,17 +93,21 @@
         <form role="form">
           <div class="form-group">
             <label for="exampleInputEmail1">Endereço de email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Endereço de email">
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Endereço de email" ng-model="cadastro.email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nome</label>
+            <input type="text" class="form-control" id="exampleInputNome" placeholder="Nome" ng-model="cadastro.nome">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" ng-model="cadastro.senha">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Registrar</button>
+        <button type="button" class="btn btn-primary" ng-click="register()">Registrar</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

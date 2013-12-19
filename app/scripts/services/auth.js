@@ -1,49 +1,48 @@
 'use strict';
 
 angular.module('classifikdosApp')
-  .service('Auth', function Auth($localStorage, $sessionStorage, $cookies) {
+  .service('Auth', function Auth($localStorage) {
 
     var users = [
-      {email: 'sei@la.com.br', senha: '123'},
-      {email: 'elmano@neto.com', senha: '123'}
+      {nome: 'Sei Lá', email: 'sei@la.com.br', senha: '123'},
+      {nome: 'Elmano Neto', email: 'elmano@neto.com', senha: '123'}
     ];
   	
     this.isAuth = function () {
-      if (!$cookies.user) {
+      if (!$localStorage.user) {
         return false;
       }
       return true;
     }
 
   	this.login = function (user) {
-     /* for(var i = 0; i < users.length; i++){
+      for(var i = 0; i < users.length; i++){
         if(users[i].email == user.email && users[i].senha == user.senha){
-          $sessionStorage.user = user;
+          $localStorage.user = users[i];
           this.isAuth();
           break;
         }
-      }*/
-
-      $cookies.user = 'elmano';
+      }
   	}
 
     this.logout = function () {
-      delete $cookies.user;
+      delete $localStorage.user;
+      window.location = '#/';
     }
 
     this.register = function (user) {
       users.push(user);
-      this.login(user.email, user.senha);
+      this.login(user);
     }
 
     this.checkUser = function () {
-      if (!$sessionStorage.user) {
+      if (!this.isAuth()) {
         window.location = '#/';
-      };
+      }
     }
 
     this.getUser = function () {
-      return $cookies.user;
+      return $localStorage.user;
     }
 
   });
