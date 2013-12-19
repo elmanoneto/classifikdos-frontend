@@ -149,3 +149,20 @@ footer{
 .white a:hover{
 	color: white;
 }
+
+.btn-auth{
+	position: relative;
+	bottom: 7px;
+}
+
+.align-menu-auth{
+	text-align: left;
+}
+
+.align-menu-auth li a:hover{
+	color: black;
+}
+
+.pointer{
+	cursor: pointer;
+}

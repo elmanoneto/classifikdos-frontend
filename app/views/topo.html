@@ -31,14 +31,14 @@
           <div ng-hide="isAuth">
             Olá, acesse <span class="underline"><a data-toggle="modal" data-target="#modalLogin" class="white">sua conta</a></span>, ou faça <span class="underline"><a class="white" data-toggle="modal" data-target="#modalRegister">seu registro</a></span>.
           </div>
-          <div ng-show="isAuth">
+          <div ng-show="isAuth" class="btn-auth">
             <div class="btn-group">
               <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
                 <span class="glyphicon glyphicon-user"></span> {{user.nome}} <span class="caret"></span>
               </button>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu align-menu-auth">
                 <li><a>Perfil</a></li>
-                <li><a ng-click="logout()">Logout</a></li>
+                <li><a ng-click="logout()" class="pointer">Logout</a></li>
               </ul>
             </div>
           </div>
