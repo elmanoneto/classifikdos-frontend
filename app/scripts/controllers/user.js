@@ -5,6 +5,10 @@ angular.module('classifikdosApp')
  
     $scope.isAuth = Auth.isAuth();
 
+    var data = new Date();
+
+    $scope.ano = data.getFullYear();
+
     $scope.login = function () {
       var user = {
         'email': $scope.user.email,

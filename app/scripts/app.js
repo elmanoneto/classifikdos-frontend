@@ -21,6 +21,14 @@ angular.module('classifikdosApp', [
         templateUrl: 'views/search.html',
         controller: 'SearchCtrl'
       })
+      .when('/sobre', {
+        templateUrl: 'views/sobre.html',
+        controller: 'SobreCtrl'
+      })
+      .when('/perfil', {
+        templateUrl: 'views/perfil.html',
+        controller: 'PerfilCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
