@@ -29,6 +29,10 @@ angular.module('classifikdosApp', [
         templateUrl: 'views/perfil.html',
         controller: 'PerfilCtrl'
       })
+      .when('/categoria/:params', {
+        templateUrl: 'views/categoria.html',
+        controller: 'CategoriaCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
