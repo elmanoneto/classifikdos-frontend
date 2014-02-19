@@ -1,1 +1,119 @@
-<p>This is the anuncios view.</p>
+<div ng-if="anuncios != 0">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h3 id="tables">Meus Anúncios</h3>
+      </div>
+      <div class="bs-example table-responsive">
+        <table class="table table-striped table-hover ">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Preço </th>
+              <th>Editar</th>
+              <th>Remover</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="anuncio in anuncios">
+              <td>{{anuncio.descricao}}</td>
+              <td>R$ {{anuncio.preco}}</td>
+              <td><a href="javascript:void(0)" ng-click="editar(anuncio.idt)">
+                <img src="../images/editar.png">
+              </a></td>
+              <td><a href="javascript:void(0)" ng-click="remover(anuncio.idt)">
+                <img src="../images/excluir.gif">
+              </a></td>
+            </tr>
+          </tbody>
+        </table> 
+      </div><!-- /example -->
+    </div>
+  </div>
+</div>
+
+<div ng-if="anuncios == 0">
+  <h3>Meus anúncios</h3>
+  <p>Nenhum anúncio cadastrado.</p>
+</div>
+
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalAnuncio">Novo anúncio</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalAnuncio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Novo anúncio</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Descrição</label>
+            <textarea class="form-control" rows="3" id="textArea" ng-model="anuncio.descricao"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Produto</label>
+            <select class="form-control" id="select" ng-options="produto.idt as produto.nome for produto in produtos" ng-model="anuncio.produtos">
+              <option style="display:none" value="">Escolha um produto</option>
+            </select>
+          </div>
+           <div class="form-group">
+            <label for="exampleInputPassword1">Preço</label>
+            <div class="input-group">
+              <span class="input-group-addon">R$</span>
+              <input type="text" class="form-control" ng-model="anuncio.preco">
+              <span class="input-group-btn">
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" ng-click="cadastrar()">Cadastrar Anúncio</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditAnuncio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Editar Anúncio</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Descrição</label>
+            <textarea class="form-control" rows="3" id="textArea" ng-model="editar.descricao"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Produto</label>
+            <select class="form-control" id="select" ng-options="produto.idt as produto.nome for produto in produtos" ng-model="editar.produtos">
+              <option style="display:none" value="">Escolha um produto</option>
+            </select>
+          </div>
+           <div class="form-group">
+            <label for="exampleInputPassword1">Preço</label>
+            <div class="input-group">
+              <span class="input-group-addon">R$</span>
+              <input type="text" class="form-control" ng-model="editar.preco">
+              <span class="input-group-btn">
+              <input type="hidden" ng-model="idt">
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" ng-click="acaoEditar()">Editar Anúncio</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

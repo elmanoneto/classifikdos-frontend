@@ -33,6 +33,10 @@ angular.module('classifikdosApp', [
         templateUrl: 'views/categoria.html',
         controller: 'CategoriaCtrl'
       })
+      .when('/produtos', {
+        templateUrl: 'views/produtos.html',
+        controller: 'ProdutosCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
