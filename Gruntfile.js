@@ -10,8 +10,11 @@
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  var connect = require('connect');
 
   grunt.initConfig({
+
     yeoman: {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
@@ -40,7 +43,7 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
-      }
+      },
     },
     autoprefixer: {
       options: ['last 1 version'],
@@ -308,7 +311,7 @@ module.exports = function (grunt) {
       'connect:livereload',
       'watch'
     ]);
-  });
+  }); 
 
   grunt.registerTask('test', [
     'clean:server',
