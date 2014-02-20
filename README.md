@@ -3,7 +3,9 @@ classifikdos 2.0
 Projeto da disciplina Desenvolvimento de Sistemas Corporativos - FrontEnd
 
 
-Passos para rodar o projeto:
+Passos para rodar o projeto
+
+Instalar o nodejs:
 <tt>sudo apt-get install nodejs</tt>
 
 Depois entra na pasta do projeto e:
