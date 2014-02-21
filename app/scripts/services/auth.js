@@ -4,9 +4,11 @@ angular.module('classifikdosApp')
   .service('Auth', function Auth($localStorage) {
 
     var users = [
-      {nome: 'Sei Lá', email: 'sei@la.com.br', senha: '123'},
-      {nome: 'Elmano Neto', email: 'elmano@neto.com', senha: '123'}
+      {idt: 0, nome: 'Sei Lá', email: 'sei@la.com.br', senha: '123'},
+      {idt: 1, nome: 'Elmano Neto', email: 'elmano@neto.com', senha: '123'}
     ];
+
+    var id = parseInt(2);
   	
     this.isAuth = function () {
       if (!$localStorage.user) {
@@ -31,8 +33,10 @@ angular.module('classifikdosApp')
     }
 
     this.register = function (user) {
+      user.idt = id;
       users.push(user);
       this.login(user);
+      id++;
     }
 
     this.checkUser = function () {
@@ -43,6 +47,14 @@ angular.module('classifikdosApp')
 
     this.getUser = function () {
       return $localStorage.user;
+    }
+
+    this.remove = function (id) {
+
+      users[id] = '';
+      this.logout();
+      this.checkUser();
+
     }
 
   });

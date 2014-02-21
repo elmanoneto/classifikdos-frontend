@@ -27,7 +27,7 @@ angular.module('classifikdosApp', [
       })
       .when('/perfil', {
         templateUrl: 'views/perfil.html',
-        controller: 'PerfilCtrl'
+        controller: 'UserCtrl'
       })
       .when('/categoria/:params', {
         templateUrl: 'views/categoria.html',

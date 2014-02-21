@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('classifikdosApp')
-  .controller('UserCtrl', function ($scope, Auth, $cookies) {
+  .controller('UserCtrl', function ($scope, Auth) {
  
     $scope.isAuth = Auth.isAuth();
 
@@ -28,10 +28,12 @@ angular.module('classifikdosApp')
 
       $scope.isAuth = Auth.isAuth();
 
+
+
       $('#modalLogin').modal('hide');
 
-      delete $scope.user.email;
-      delete $scope.user.senha;
+      $scope.user.email = '';
+      $scope.user.senha = '';
 
       $scope.user = Auth.getUser();
       $scope.isAuth = Auth.isAuth();
@@ -64,4 +66,12 @@ angular.module('classifikdosApp')
       $scope.user = Auth.getUser();
     }
 
-  });
+    $scope.removerConta = function () {
+      
+      Auth.remove($scope.user.idt);
+      $scope.isAuth = Auth.isAuth();
+      delete $scope.user;
+     
+    }
+
+});
